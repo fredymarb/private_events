@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
-  devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  devise_for :users
+
+  resource :user, only: [ :show ] do
+    resources :events, only: [ :index, :new, :create ]
+  end
+
+  resources :events, only: [ :show ]
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.
@@ -11,5 +17,5 @@ Rails.application.routes.draw do
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
   # Defines the root path route ("/")
-  # root "posts#index"
+  root "events#index"
 end
