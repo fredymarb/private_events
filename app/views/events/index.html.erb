@@ -1,7 +1,15 @@
 <h2>All Events</h2>
 
+<h3>Upcoming Events</h3>
 <ul>
-  <% @events.includes(:creator).each do |event| %>
+  <% @events.upcoming_events.includes(:creator).each do |event| %>
+    <li><%= link_to event.name, event_path(event) %></li>
+  <% end %>
+</ul>
+
+<h3>Past Events</h3>
+<ul>
+  <% @events.past_events.includes(:creator).each do |event| %>
     <li><%= link_to event.name, event_path(event) %></li>
   <% end %>
 </ul>

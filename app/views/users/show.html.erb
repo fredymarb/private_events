@@ -6,8 +6,16 @@
 </ul>
 
 <h3>Attended Events</h3>
+<h4>Past Events</h4>
 <ul>
-  <% current_user.attended_events.each do |attended_event| %>
+  <% current_user.attended_events.where(date: ...Date.today).order(date: :desc).each do |attended_event| %>
+    <li><%= link_to attended_event.name, event_path(attended_event) %></li>
+  <% end %>
+</ul>
+
+<h4>Upcomming Events</h4>
+<ul>
+  <% current_user.attended_events.where(date: Date.today..).order(date: :asc).each do |attended_event| %>
     <li><%= link_to attended_event.name, event_path(attended_event) %></li>
   <% end %>
 </ul>
