@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   end
 
   resources :events, only: [ :index, :show ]
+  resources :attendances, only: [ :create, :destroy ]
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.
