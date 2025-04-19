@@ -12,3 +12,9 @@
 <% else %>
   <p>No attendees yet.</p>
 <% end %>
+
+<% if @event.attendees.include?(current_user) %>
+  <%= button_to "Discard Event", attendance_path(id: @event.id), method: :delete, data: { turbo_confirm: "Delete me?"} %>
+<% else %>
+  <%= button_to "Attend Event", attendances_path(event_id: @event), method: :post %>
+<% end %>
