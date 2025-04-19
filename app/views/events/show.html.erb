@@ -1,3 +1,14 @@
 <p>Event name: <%= @event.name %></p>
 <p>Event date: <%= @event.date %></p>
 <p>Event creator: <%= @event.creator.email %></p>
+
+<h4>Attendees:</h4>
+<% if @event.attendees.any? %>
+  <ul>
+    <% @event.attendees.each do |attendee| %>
+      <li><%= attendee.email %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No attendees yet.</p>
+<% end %>
