@@ -4,6 +4,7 @@ class AttendancesController < ApplicationController
     Attendance.create!(attendee: current_user, attended_event: event)
 
     flash[:notice] = "You have been added to this event"
+    redirect_to event_path(event)
   end
 
   def destroy
@@ -12,5 +13,6 @@ class AttendancesController < ApplicationController
     attendance.destroy
 
     flash[:notice] = "You have been removed from this event"
+    redirect_to event_path(event)
   end
 end
