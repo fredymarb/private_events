@@ -6,4 +6,12 @@ class Event < ApplicationRecord
 
   validates :name, presence: true
   validates :date, presence: true
+
+  def self.past_events
+    self.where(date: ...Date.today).order(date: :desc)
+  end
+
+  def self.upcoming_events
+    self.where(date: Date.today..).order(date: :asc)
+  end
 end
