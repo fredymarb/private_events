@@ -1,10 +1,15 @@
 <h2>Created Events</h2>
+<ul>
+  <% @created_events.each do |event| %>
+    <li><%= link_to event.name, event_path(event) %></li>
+  <% end %>
+</ul>
 
-<% @created_events.each do |event| %>
-  <ul>
-    <li><%= event.name %></li>
-    <li><%= event.date %></li>
-  </ul>
-<% end %>
+<h3>Attended Events</h3>
+<ul>
+  <% current_user.attended_events.each do |attended_event| %>
+    <li><%= link_to attended_event.name, event_path(attended_event) %></li>
+  <% end %>
+</ul>
 
-<%= button_to "Sign out", destroy_user_session_path, method: :delete %>
+<%= button_to "Sign out", destroy_user_session_path, method: :delete, data: {turbo_confirm: "Are you sure you want to sign out?"} %>
