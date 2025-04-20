@@ -9,6 +9,14 @@
  * Consider organizing styles into separate files for maintainability.
 */
  
+nav ul {
+  display: flex;
+  gap: 8px;
+  list-style-type: none;
+  background-color: lightblue;
+  justify-content: flex-end;
+}
+
 button {
   padding: 8px;
 }

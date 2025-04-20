@@ -23,6 +23,14 @@
   </head>
 
   <body>
+    <nav>
+      <ul>
+        <li><%= link_to "My Events", user_path %></li> |
+        <li><%= link_to "All Events", events_path %></li> |
+        <li><%= link_to "Create Event", new_user_event_path %></li>
+      </ul>
+    </nav>
+
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
