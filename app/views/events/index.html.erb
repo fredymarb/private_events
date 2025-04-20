@@ -22,5 +22,5 @@
     }
   %>
 <% else %>
-  <button><%= link_to "Sign In", new_user_session_path %></button>
+  <%= button_to "Sign In", new_user_session_path, method: :post %>
 <% end %>
